@@ -21,25 +21,27 @@
   }
   class Die //models one single dice cube
   {
-      int dots, myX, myY;
+      int dots, myX, myY, dotscount,totalcount;
       Die(int x, int y) //constructor
       {
-          dots = (int)(Math.random()*6)+1;
           myX = x;
           myY = y;
+          dotscount = 0;
+          totalcount = 0;
           //variable initializations here
       }
       void roll()
       {
-      dots = (int)(Math.random()*6)+1;   
-      
-          //your code here
       }
       void show()
       {
+       for(myY = 300; myY < 360; myY += 50) {
+        for(myX = 0; myX < 350; myX += 50) {
           noStroke();
           fill(255);
           rect(myX,myY,50,50);
+          dots = (int)(Math.random()*6)+1;
+          dotscount = dotscount + dots;
           if(dots > 5){
             fill((int)(Math.random()*255),(int)(Math.random()*256),(int)(Math.random()*356));
             ellipse(myX+10,myY+10,5,5);
@@ -48,6 +50,7 @@
             ellipse(myX+40,myY+30,5,5);
             ellipse(myX+10,myY+30,5,5);
             ellipse(myX+10,myY+20,5,5);
+            
           }
           else if ((dots > 4) && (dots < 6)){
             fill((int)(Math.random()*255),(int)(Math.random()*256),(int)(Math.random()*356));
@@ -56,7 +59,7 @@
             ellipse(myX+25,myY+20,5,5);
             ellipse(myX+40,myY+30,5,5);
             ellipse(myX+10,myY+30,5,5);
-           
+            
           }
             else if ((dots > 3) && (dots < 5)){
             fill((int)(Math.random()*255),(int)(Math.random()*256),(int)(Math.random()*356));
@@ -64,21 +67,32 @@
             ellipse(myX+40,myY+10,5,5);
             ellipse(myX+40,myY+30,5,5);
             ellipse(myX+10,myY+30,5,5);
+            
             }
             else if ((dots > 2) && (dots < 4)){
             fill((int)(Math.random()*255),(int)(Math.random()*256),(int)(Math.random()*356));
             ellipse(myX+10,myY+10,5,5);
             ellipse(myX+40,myY+30,5,5);
             ellipse(myX+25,myY+20,5,5);
+            
             }
             else if ((dots > 1) && (dots < 3)){
             fill((int)(Math.random()*255),(int)(Math.random()*256),(int)(Math.random()*356));
             ellipse(myX+25,myY+10,5,5);
             ellipse(myX+25,myY+30,5,5);
+            
             }
             else{
               fill((int)(Math.random()*255),(int)(Math.random()*256),(int)(Math.random()*356));
               ellipse(myX+25,myY+25,5,5);
-            }//your code here            //your code here
+              
+            }
+        }
+       }
+            fill(0);
+            text("The total amount of dots from the rolls is " + dotscount, 105, 400);
+            totalcount = dotscount;
+            dotscount = 0;
+          //your code here            //your code here
       }
   }
