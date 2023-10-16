@@ -35,8 +35,8 @@
       }
       void show()
       {
-       for(myY = 300; myY < 360; myY += 50) {
-        for(myX = 0; myX < 350; myX += 50) {
+       for(myY = 0; myY < 400; myY += 50) {
+        for(myX = 0; myX < 400; myX += 50) {
           noStroke();
           fill(255);
           rect(myX,myY,50,50);
